@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
             /* drawing feature */
             cell.addEventListener("mouseenter", () => {
                 if (isDrawing) {
-                    cell.style.backgroundColor = "black";
+                    cell.style.backgroundColor = currentColor;
                 }
             });
             cell.addEventListener("mousedown", () => {
                 if (isDrawing) {
-                    cell.style.backgroundColor = "black";
+                    cell.style.backgroundColor = currentColor;
                 }
             });
             
@@ -63,8 +63,6 @@ document.addEventListener("mousedown", () => {
 document.addEventListener("mouseup", () => {
     isDrawing = false;
 });
-
-
 /* ========================================================================== */
 
 /* make button change color when clicked on */
@@ -76,7 +74,7 @@ click.forEach(button => {
 });
 click.forEach(button => {
     button.addEventListener("drag", () => {
-        button.style.backgroundColor = "#fff";
+        button.style.backgroundColor = "#gfff";
     });
 });
 
@@ -85,3 +83,20 @@ click.forEach(button => {
         button.style.backgroundColor = "#fff";
     });
 });
+/* ========================================================================== */
+
+/* change color button */
+currentColor = "#000000";
+
+const colorBtn = document.getElementById("color");
+const colorPicker = document.getElementById("color-picker");
+colorBtn.addEventListener("click", () => {
+    colorPicker.click();
+});
+
+colorPicker.addEventListener("input", (e) => {
+    currentColor = e.target.value;
+});
+/* ========================================================================== */
+
+
