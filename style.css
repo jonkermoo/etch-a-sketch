@@ -4,24 +4,28 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255); 
+
+    background-image: url("images/background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 :root {
-    --frameRatio: 16 / 10;
-    --screenRatio: 1400 / 870;
+    --frameRatio: 5 / 3;
+    --screenRatio: 1 / 1;
 }
 
 
 .etch-a-sketch {
-    width:  min(90vw, calc(70vh * var(--frameRatio)));
+    width: min(80vw, calc(45vh * var(--frameRatio)));
     aspect-ratio: var(--frameRatio); 
 
-    padding: 3%;
+    padding: 2.5%;
     box-sizing: border-box;
-    background: #8B2E1C;
-    border: 0.8vmin solid #000;
-    border-radius: 2.5vmin;
+    background: #c94e35;
+    border: 0.6vmin solid #000;
+    border-radius: 5vmin;
 
     display: flex;
     flex-direction: column;
@@ -30,18 +34,15 @@ body {
 
 .title {
     margin: 0;
-    font-family: 'Comic Sans MS', sans-serif;
-
+    padding-top: 0vmin;
+    padding-bottom: 3vmin;
+    font-family: "Comic Neue", "Baloo 2", sans-serif;
     font-size: 4vmin;
-
+    letter-spacing: .4vmin;
     line-height: 1.1;
-
-    color: #ECFF00;
-    text-shadow:
-        -0.3vmin -0.3vmin 0 #000,
-        0.3vmin -0.3vmin 0 #000,
-        -0.3vmin  0.3vmin 0 #000,
-        0.3vmin  0.3vmin 0 #000;
+    color: #f6ff7c;
+    text-align: center;
+    text-shadow: .3vmin .3vmin 0.1vmin rgba(0, 0, 0, 0.5);
 }
 
 
@@ -50,7 +51,7 @@ body {
     aspect-ratio: var(--screenRatio); 
     margin: 2.5% 0;
     background: #fff;
-    border: 0.8vmin solid #000;
+    border: 0.6vmin solid #000;
     box-sizing: border-box;
     position: relative;
 }
@@ -70,6 +71,6 @@ body {
     max-width: 110px; 
     max-height: 110px;
     background: #fff;
-    border: 0.8vmin solid #000;
+    border: 0.6vmin solid #000;
     border-radius: 50%;
 }
