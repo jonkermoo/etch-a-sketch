@@ -1,3 +1,4 @@
+/* initial creation of grid and resizing grid */
 document.addEventListener("DOMContentLoaded", () => {
     const screen = document.querySelector(".screen");
     const sizeBtn  = document.getElementById("size-display");
@@ -17,7 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
         screen.appendChild(cell);
         }
     }
-
     
     function changeSize() {
         const result = confirm("Changing the grid will clear your drawing");
@@ -40,3 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sizeBtn.addEventListener("click", changeSize);
 });
+/* ========================================================================== */
+
+/* drawing feature */
+let isDrawing = false;
+
+document.addEventListener("mousedown", () => {
+    isDrawing = true;
+})
