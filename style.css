@@ -66,6 +66,9 @@ body {
     border: 0.6vmin solid #8f3422;
     box-sizing: border-box;
     position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
@@ -118,14 +121,20 @@ body {
     pointer-events: none;
 }
 #size-display {
-  font-family: "Comic Neue", "Baloo 2", sans-serif;
-  font-size: 2vmin;
-  font-weight: bold;
-  background: #fff;
-  color: #612519;
-  padding: 0.6vmin 4.5vmin;
-  border-radius: 1vmin;
-  border: 0.45vmin solid #8f3422;
-  user-select: none;
-  cursor: pointer;
+    font-family: "Comic Neue", "Baloo 2", sans-serif;
+    font-size: 2vmin;
+    font-weight: bold;
+    background: #fff;
+    color: #612519;
+    padding: 0.6vmin 4.5vmin;
+    border-radius: 1vmin;
+    border: 0.45vmin solid #8f3422;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* in your styles.css */
+.grid-square {
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,0.1);
 }
