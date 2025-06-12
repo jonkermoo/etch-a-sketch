@@ -34,8 +34,8 @@ body {
 
 .title {
     margin: 0;
-    padding-top: 0vmin;
-    padding-bottom: 3vmin;
+    margin-bottom: 0.5vmin;
+    padding-bottom: 0;
     font-family: "Comic Neue", "Baloo 2", sans-serif;
     font-size: 4vmin;
     letter-spacing: .4vmin;
@@ -43,6 +43,18 @@ body {
     color: #f6ff7c;
     text-align: center;
     text-shadow: .3vmin .3vmin 0.1vmin rgba(0, 0, 0, 0.5);
+}
+#credit {
+    font-family: "Comic Neue", "Baloo 2", sans-serif;
+    text-align: right;
+    color: white;
+    margin-top: 0;
+    padding-left: 38vmin;
+    font-size: 1.7vmin;
+}
+#credit a {
+    text-decoration: none;
+    color: inherit;
 }
 
 
