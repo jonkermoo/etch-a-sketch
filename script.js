@@ -31,12 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
             screen.appendChild(cell);
         }
     }
-    
+    /* ====================================================================== */
+   
+    /* button to change size of grid */
     function changeSize() {
         const result = confirm("Changing the grid will clear your drawing");
         if (result) {
-            const input = prompt("Enter new grid size (e.g. 16 for 16×16):", 
-                                                                        "");
+            const input = prompt("Enter new grid size:", "");
             const newSize = parseInt(input, 10);
         
             if (!isNaN(newSize) && newSize > 0 && newSize <= 128) {
@@ -50,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
+    /* ====================================================================== */
+    
     createGrid(16);
     sizeBtn.textContent = `size: 16`;
     sizeBtn.addEventListener("click", changeSize);
@@ -72,27 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isDrawing = false;
     });
     /* ====================================================================== */
-
-    /* make button change color when clicked on */
-    const click = document.querySelectorAll("button");
-    click.forEach(button => {
-        button.addEventListener("mousedown", () => {
-            button.style.backgroundColor = "gray";
-        });
-    });
-    click.forEach(button => {
-        button.addEventListener("drag", () => {
-            button.style.backgroundColor = "#gfff";
-        });
-    });
-
-    click.forEach(button => {
-        button.addEventListener("mouseup", () => {
-            button.style.backgroundColor = "#fff";
-        });
-    });
-    /* ====================================================================== */
-
+    
     /* change color button */
     currentColor = "#000000";
 
@@ -107,6 +90,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     /* ======================================================================= */
 
+    /* shade button */
+    const shade = document.getElementById("shade");
+    shade.addEventListener("click", () => {
+
+    });
+    
+    /* make button change color when clicked on */
+    const click = document.querySelectorAll("button");
+    click.forEach(button => {
+        button.addEventListener("mousedown", () => {
+            button.style.backgroundColor = "gray";
+        });
+    });
+    click.forEach(button => {
+        button.addEventListener("drag", () => {
+            button.style.backgroundColor = "#gfff";
+        });
+    });
+    click.forEach(button => {
+        button.addEventListener("mouseup", () => {
+            button.style.backgroundColor = "#fff";
+        });
+    });
+    /* ====================================================================== */
 });
 
 
