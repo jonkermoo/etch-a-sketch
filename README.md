@@ -11,5 +11,3 @@ Created using Flexbox rather CSS Grids.
 - Adjustable grid size (to be implemented)
 - Color options (to be implemented)
 - Reset/Clear button (to be implemented)
-
-TEST
