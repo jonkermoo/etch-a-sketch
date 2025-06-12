@@ -8,14 +8,26 @@ document.addEventListener("DOMContentLoaded", () => {
         screen.innerHTML = "";
 
         for (let i = 0; i < n * n; i++) {
-        const cell = document.createElement("div");
-        cell.classList.add("grid-square");
+            const cell = document.createElement("div");
+            cell.classList.add("grid-square");
 
-        const pct = 100 / n;
-        cell.style.width  = `${pct}%`;
-        cell.style.height = `${pct}%`;
+            const pct = 100 / n;
+            cell.style.width  = `${pct}%`;
+            cell.style.height = `${pct}%`;
 
-        screen.appendChild(cell);
+            /* drawing feature */
+            cell.addEventListener("mouseenter", () => {
+                if (isDrawing) {
+                    cell.style.backgroundColor = "black";
+                }
+            });
+            cell.addEventListener("mousedown", () => {
+                if (isDrawing) {
+                    cell.style.backgroundColor = "black";
+                }
+            });
+            
+            screen.appendChild(cell);
         }
     }
     
@@ -42,9 +54,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 /* ========================================================================== */
 
-/* drawing feature */
+/* check if mouse is down */
 let isDrawing = false;
 
 document.addEventListener("mousedown", () => {
     isDrawing = true;
-})
+});
+document.addEventListener("mouseup", () => {
+    isDrawing = false;
+});
+
+
+/* ========================================================================== */
