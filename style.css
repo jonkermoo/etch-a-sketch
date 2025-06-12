@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #444 0%, #222 100%);   
+}
+
+:root {
+  --frameRatio: 16 / 10;           /* 1.6 : 1  (outer)  */
+  --screenRatio: 1400 / 870;       /* 1.609 : 1 (inner) */
+}
+
+/* 1) Outer frame styling */
+.etch-a-sketch {
+  /* ❶ Width is whichever fits: 90 vw OR (90 vh × ratio)     */
+  width:  min(90vw, calc(90vh * var(--frameRatio)));
+  aspect-ratio: var(--frameRatio); /* locks the ratio     */
+
+  /* ❷ Visual styling (unchanged from before) */
+  padding: 3%;
+  box-sizing: border-box;
+  background: #8B2E1C;
+  border: 0.8vmin solid #000;      /* scales with size    */
+  border-radius: 2.5vmin;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 2) Title styling */
+.title {
+  margin: 0;
+  font-family: 'Comic Sans MS', sans-serif;
+
+  /* ✅ Use vmin to scale with window size */
+  font-size: 4vmin;
+
+  /* ✅ Optional: adjust line-height to center visually */
+  line-height: 1.1;
+
+  /* ✅ Stroke-like outline using text-shadow */
+  color: #ECFF00;
+  text-shadow:
+     -0.3vmin -0.3vmin 0 #000,
+      0.3vmin -0.3vmin 0 #000,
+     -0.3vmin  0.3vmin 0 #000,
+      0.3vmin  0.3vmin 0 #000;
+}
+
+/* 3) White “screen” container */
+.screen {
+  width: 92%;                       /* stays proportional */
+  aspect-ratio: var(--screenRatio); /* 1400 × 870 exact    */
+  margin: 2.5% 0;
+  background: #fff;
+  border: 0.8vmin solid #000;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 4) Bottom knobs container */
+.controls {
+  width: 92%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5%;
+}
+
+/* 5) Knob styling */
+.knob {
+  width: 11vmin;
+  height: 11vmin;
+  max-width: 110px;                 /* small cap           */
+  max-height: 110px;
+  background: #fff;
+  border: 0.8vmin solid #000;
+  border-radius: 50%;
+}
