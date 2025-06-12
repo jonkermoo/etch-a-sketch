@@ -1,11 +1,10 @@
-let currentGrid = 16;
-
-/* initial creation of grid and resizing grid */
 document.addEventListener("DOMContentLoaded", () => {
     const screen = document.querySelector(".screen");
     const sizeBtn  = document.getElementById("size-display");
 
- 
+    let currentGrid = 16; // used for keeping track of current grid size
+
+    /* initial creation of grid and resizing grid */
     function createGrid(n) {
         screen.innerHTML = "";
 
@@ -36,7 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function changeSize() {
         const result = confirm("Changing the grid will clear your drawing");
         if (result) {
-            const input = prompt("Enter new grid size (e.g. 16 for 16×16):", "");
+            const input = prompt("Enter new grid size (e.g. 16 for 16×16):", 
+                                                                        "");
             const newSize = parseInt(input, 10);
         
             if (!isNaN(newSize) && newSize > 0 && newSize <= 128) {
@@ -52,59 +52,61 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     createGrid(16);
     sizeBtn.textContent = `size: 16`;
-
     sizeBtn.addEventListener("click", changeSize);
-});
-/* ========================================================================== */
 
-/* check if mouse is down */
-let isDrawing = false;
-
-document.addEventListener("mousedown", () => {
-    isDrawing = true;
-    cell.style.backgroundColor = currentColor;
-});
-document.addEventListener("mouseup", () => {
-    isDrawing = false;
-});
-/* ========================================================================== */
-
-/* make button change color when clicked on */
-const click = document.querySelectorAll("button");
-click.forEach(button => {
-    button.addEventListener("mousedown", () => {
-        button.style.backgroundColor = "gray";
+    /* clear button */
+    const clear = document.getElementById("clear");
+        clear.addEventListener("click", () => {
+        createGrid(currentGrid);
     });
-});
-click.forEach(button => {
-    button.addEventListener("drag", () => {
-        button.style.backgroundColor = "#gfff";
+    /* ====================================================================== */
+
+    /* check if mouse is down */
+    let isDrawing = false;
+
+    document.addEventListener("mousedown", () => {
+        isDrawing = true;
+        cell.style.backgroundColor = currentColor;
     });
-});
-
-click.forEach(button => {
-    button.addEventListener("mouseup", () => {
-        button.style.backgroundColor = "#fff";
+    document.addEventListener("mouseup", () => {
+        isDrawing = false;
     });
-});
-/* ========================================================================== */
+    /* ====================================================================== */
 
-/* change color button */
-currentColor = "#000000";
+    /* make button change color when clicked on */
+    const click = document.querySelectorAll("button");
+    click.forEach(button => {
+        button.addEventListener("mousedown", () => {
+            button.style.backgroundColor = "gray";
+        });
+    });
+    click.forEach(button => {
+        button.addEventListener("drag", () => {
+            button.style.backgroundColor = "#gfff";
+        });
+    });
 
-const colorBtn = document.getElementById("color");
-const colorPicker = document.getElementById("color-picker");
-colorBtn.addEventListener("click", () => {
-    colorPicker.click();
+    click.forEach(button => {
+        button.addEventListener("mouseup", () => {
+            button.style.backgroundColor = "#fff";
+        });
+    });
+    /* ====================================================================== */
+
+    /* change color button */
+    currentColor = "#000000";
+
+    const colorBtn = document.getElementById("color");
+    const colorPicker = document.getElementById("color-picker");
+    colorBtn.addEventListener("click", () => {
+        colorPicker.click();
+    });
+
+    colorPicker.addEventListener("input", (e) => {
+        currentColor = e.target.value;
+    });
+    /* ======================================================================= */
+
 });
 
-colorPicker.addEventListener("input", (e) => {
-    currentColor = e.target.value;
-});
-/* ========================================================================== */
 
-/* clear button */
-const clear = document.getElementById("clear");
-clear.addEventListener("click", () => {
-    createGrid(currentGrid);
-});
