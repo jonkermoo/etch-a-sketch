@@ -127,4 +127,5 @@ body {
   border-radius: 1vmin;
   border: 0.45vmin solid #8f3422;
   user-select: none;
+  cursor: pointer;
 }
