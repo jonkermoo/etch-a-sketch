@@ -66,3 +66,22 @@ document.addEventListener("mouseup", () => {
 
 
 /* ========================================================================== */
+
+/* make button change color when clicked on */
+const click = document.querySelectorAll("button");
+click.forEach(button => {
+    button.addEventListener("mousedown", () => {
+        button.style.backgroundColor = "gray";
+    });
+});
+click.forEach(button => {
+    button.addEventListener("drag", () => {
+        button.style.backgroundColor = "#fff";
+    });
+});
+
+click.forEach(button => {
+    button.addEventListener("mouseup", () => {
+        button.style.backgroundColor = "#fff";
+    });
+});
