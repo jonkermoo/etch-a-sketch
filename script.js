@@ -1,3 +1,5 @@
+let currentGrid = 16;
+
 /* initial creation of grid and resizing grid */
 document.addEventListener("DOMContentLoaded", () => {
     const screen = document.querySelector(".screen");
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const newSize = parseInt(input, 10);
         
             if (!isNaN(newSize) && newSize > 0 && newSize <= 128) {
+                currentGrid = newSize;
                 createGrid(newSize);
                 sizeBtn.textContent = `size: ${newSize}`;
             } else if (newSize > 128) {
@@ -59,6 +62,7 @@ let isDrawing = false;
 
 document.addEventListener("mousedown", () => {
     isDrawing = true;
+    cell.style.backgroundColor = currentColor;
 });
 document.addEventListener("mouseup", () => {
     isDrawing = false;
@@ -99,4 +103,8 @@ colorPicker.addEventListener("input", (e) => {
 });
 /* ========================================================================== */
 
-
+/* clear button */
+const clear = document.getElementById("clear");
+clear.addEventListener("click", () => {
+    createGrid(currentGrid);
+});
