@@ -24,7 +24,7 @@ body {
     padding: 2.5%;
     box-sizing: border-box;
     background: #c94e35;
-    border: 0.6vmin solid #000;
+    border: 0.6vmin solid #8f3422;
     border-radius: 5vmin;
 
     display: flex;
@@ -42,7 +42,7 @@ body {
     line-height: 1.1;
     color: #f6ff7c;
     text-align: center;
-    text-shadow: .3vmin .3vmin 0.1vmin rgba(0, 0, 0, 0.5);
+    text-shadow: .3vmin .3vmin 0.1vmin #8f3422;
 }
 #credit {
     font-family: "Comic Neue", "Baloo 2", sans-serif;
@@ -63,7 +63,7 @@ body {
     aspect-ratio: var(--screenRatio); 
     margin: 2.5% 0;
     background: #fff;
-    border: 0.6vmin solid #000;
+    border: 0.6vmin solid #8f3422;
     box-sizing: border-box;
     position: relative;
 }
@@ -83,6 +83,6 @@ body {
     max-width: 110px; 
     max-height: 110px;
     background: #fff;
-    border: 0.6vmin solid #000;
+    border: 0.6vmin solid #8f3422;
     border-radius: 50%;
 }
