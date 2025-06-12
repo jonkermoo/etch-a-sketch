@@ -73,10 +73,9 @@ body {
     width: 92%;
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin-top: 2.5%;
 }
-
-
 .knob {
     width: 11vmin;
     height: 11vmin;
@@ -85,4 +84,47 @@ body {
     background: #fff;
     border: 0.6vmin solid #8f3422;
     border-radius: 50%;
+}
+.tool-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vmin;
+}
+.toolbar {
+    display: flex;
+    gap: 1.2vmin; 
+}
+.tool-btn {
+    width: 6vmin;
+    height: 6vmin;
+    max-width: 60px;
+    max-height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+    border: 0.45vmin solid #8f3422;
+    border-radius: 1vmin;
+    cursor: pointer;
+    padding: 0;
+    }
+.tool-btn img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    pointer-events: none;
+}
+#size-display {
+  font-family: "Comic Neue", "Baloo 2", sans-serif;
+  font-size: 2vmin;
+  font-weight: bold;
+  background: #fff;
+  color: #612519;
+  padding: 0.6vmin 4.5vmin;
+  border-radius: 1vmin;
+  border: 0.45vmin solid #8f3422;
+  user-select: none;
 }
