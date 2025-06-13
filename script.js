@@ -29,8 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (isDrawing) {
                     if (drawMode === "draw") {
                         cell.style.backgroundColor = currentColor;
+                        cell.dataset.shade = "1"; 
                     } else if (drawMode === "shade") {
                         let level = parseFloat(cell.dataset.shade);
+                        if (level >= 1) return;  
                         level = Math.min(level + 0.1, 1);
                         cell.dataset.shade = level.toFixed(1);
                         cell.style.backgroundColor = hexToRGBA(currentColor, 
@@ -42,8 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (isDrawing) {
                     if (drawMode === "draw") {
                         cell.style.backgroundColor = currentColor;
+                        cell.dataset.shade = "1"; 
                     } else if (drawMode === "shade") {
                         let level = parseFloat(cell.dataset.shade);
+                        if (level >= 1) return;  
                         level = Math.min(level + 0.1, 1);
                         cell.dataset.shade = level.toFixed(1);
                         cell.style.backgroundColor = hexToRGBA(currentColor, 
