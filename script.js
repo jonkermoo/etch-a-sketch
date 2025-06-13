@@ -37,7 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         cell.dataset.shade = level.toFixed(1);
                         cell.style.backgroundColor = hexToRGBA(currentColor, 
                                                                 level);
-                    } 
+                    } else if (drawMode === "rainbow") {
+                        const color = rainbowColors[rainbowIndex];
+                        cell.style.backgroundColor = color;
+                        cell.dataset.shade = "1";
+                        rainbowIndex = (rainbowIndex + 1) % rainbowColors.length;
+                    }
                 }
             });
             cell.addEventListener("mousedown", () => {
@@ -52,7 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
                         cell.dataset.shade = level.toFixed(1);
                         cell.style.backgroundColor = hexToRGBA(currentColor, 
                                                                 level);
-                    } 
+                    } else if (drawMode === "rainbow") {
+                        const color = rainbowColors[rainbowIndex];
+                        cell.style.backgroundColor = color;
+                        cell.dataset.shade = "1";
+                        rainbowIndex = (rainbowIndex + 1) % rainbowColors.length;
+                    }
                 }
             });
             
@@ -134,6 +144,17 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ======================================================================= */
 
     /* rainbow button */
+    const rainbowColors = [
+        "#FF0000", // Red
+        "#FF7F00", // Orange
+        "#FFFF00", // Yellow
+        "#00FF00", // Green
+        "#0000FF", // Blue
+        "#4B0082", // Indigo
+        "#9400D3"  // Violet
+    ];
+    let rainbowIndex = 0;
+
     const rainbow = document.getElementById("rainbow");
     rainbow.addEventListener("click", () => {
         rainbow.style.backgroundColor = "gray";
