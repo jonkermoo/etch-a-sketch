@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentGrid = 16;
     let currentColor = "#000000";
-    cell.dataset.shade = "0";
 
     /* initial creation of grid and resizing grid */
     function createGrid(n) {
@@ -23,19 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
             cell.style.width  = `${pct}%`;
             cell.style.height = `${pct}%`;
 
+            cell.dataset.shade = "0";
+
             /* drawing feature */
             cell.addEventListener("mouseenter", () => {
                 if (isDrawing) {
                     if (drawMode === "draw") {
                         cell.style.backgroundColor = currentColor;
-                    }
+                    } else if (drawMode === "shade") {
+                        let level = parseFloat(cell.dataset.shade);
+                        level = Math.min(level + 0.1, 1);
+                        cell.dataset.shade = level.toFixed(1);
+                        cell.style.backgroundColor = hexToRGBA(currentColor, 
+                                                                level);
+                    } 
                 }
             });
             cell.addEventListener("mousedown", () => {
                 if (isDrawing) {
                     if (drawMode === "draw") {
                         cell.style.backgroundColor = currentColor;
-                    }
+                    } else if (drawMode === "shade") {
+                        let level = parseFloat(cell.dataset.shade);
+                        level = Math.min(level + 0.1, 1);
+                        cell.dataset.shade = level.toFixed(1);
+                        cell.style.backgroundColor = hexToRGBA(currentColor, 
+                                                                level);
+                    } 
                 }
             });
             
