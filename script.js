@@ -118,17 +118,31 @@ document.addEventListener("DOMContentLoaded", () => {
     pencil.addEventListener("click", () => {
         pencil.style.background = "gray";
         shade.style.backgroundColor = "#fff"
+        rainbow.style.backgroundColor = "#fff";
         drawMode = "draw";
     })
+    /* ======================================================================= */
 
     /* shade button */
     const shade = document.getElementById("shade");
     shade.addEventListener("click", () => {
         shade.style.backgroundColor = "gray";
         pencil.style.background = "#fff";
+        rainbow.style.backgroundColor = "#fff";
         drawMode = "shade";
     });
-    
+    /* ======================================================================= */
+
+    /* rainbow button */
+    const rainbow = document.getElementById("rainbow");
+    rainbow.addEventListener("click", () => {
+        rainbow.style.backgroundColor = "gray";
+        pencil.style.background = "#fff";
+        shade.style.backgroundColor = "#fff"
+        drawMode = "rainbow";
+    })
+    /* ======================================================================= */
+
     /* make button change color when clicked on */
     const click = document.querySelectorAll("button");
     click.forEach(button => {
