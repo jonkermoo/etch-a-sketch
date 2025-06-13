@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sizeBtn  = document.getElementById("size-display");
 
     let currentGrid = 16; // used for keeping track of current grid size
+    let currentColor = "#000000";
 
     /* initial creation of grid and resizing grid */
     function createGrid(n) {
@@ -77,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ====================================================================== */
     
     /* change color button */
-    currentColor = "#000000";
 
     const colorBtn = document.getElementById("color");
     const colorPicker = document.getElementById("color-picker");
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* shade button */
     const shade = document.getElementById("shade");
     shade.addEventListener("click", () => {
-
+        shade.style.backgroundColor = "gray";
     });
     
     /* make button change color when clicked on */
