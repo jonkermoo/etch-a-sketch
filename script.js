@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pencil = document.getElementById("draw");
     pencil.addEventListener("click", () => {
         clearInterval(rainbowAnimation);
-        pencil.style.background = "gray";
+        pencil.style.backgroundColor = "gray";
         shade.style.backgroundColor = "#fff"
         rainbow.style.backgroundColor = "#fff";
         drawMode = "draw";
