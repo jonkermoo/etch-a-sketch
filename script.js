@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentGrid = 16;
     let currentColor = "#000000";
+    cell.dataset.shade = "0";
 
     /* initial creation of grid and resizing grid */
     function createGrid(n) {
@@ -129,6 +130,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     /* ====================================================================== */
+
+    /* function to convert hex to RGBA */
+    function hexToRGBA(hex, alpha) {
+        const r = parseInt(hex.substr(1, 2), 16);
+        const g = parseInt(hex.substr(3, 2), 16);
+        const b = parseInt(hex.substr(5, 2), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
 });
 
 
