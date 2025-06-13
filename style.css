@@ -139,4 +139,38 @@ body {
     user-select: none;
     cursor: pointer;
 }
+#color {
+    background-image: url("images/palette.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#draw {
+    background-image: url("images/pencil.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#shade {
+    background-image: url("images/bulb.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#rainbow {
+    background-image: url("images/rainbow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#clear {
+    background-image: url("images/trash.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
