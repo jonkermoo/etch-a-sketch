@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
     shade.addEventListener("click", () => {
         clearInterval(rainbowAnimation);
         shade.style.backgroundColor = "gray";
-        pencil.style.background = "#fff";
+        pencil.style.backgroundColor = "#fff";
         rainbow.style.backgroundColor = "#fff";
         drawMode = "shade";
     });
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const rainbow = document.getElementById("rainbow");
     rainbow.addEventListener("click", () => {
-        pencil.style.background = "#fff";
+        pencil.style.backgroundColor = "#fff";
         shade.style.backgroundColor = "#fff"
         drawMode = "rainbow";
 
@@ -257,6 +257,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /* ====================================================================== */
 
-    
+    n
 
 });
