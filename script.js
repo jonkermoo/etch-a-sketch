@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         const color = rainbowColors[rainbowIndex];
                         cell.style.backgroundColor = color;
                         cell.dataset.shade = "1";
-                        rainbowIndex = (rainbowIndex + 1) % rainbowColors.length;
+                        rainbowIndex = 
+                                    (rainbowIndex + 1) % rainbowColors.length;
                     }
                 }
             });
@@ -61,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         const color = rainbowColors[rainbowIndex];
                         cell.style.backgroundColor = color;
                         cell.dataset.shade = "1";
-                        rainbowIndex = (rainbowIndex + 1) % rainbowColors.length;
+                        rainbowIndex = 
+                                    (rainbowIndex + 1) % rainbowColors.length;
                     }
                 }
             });
@@ -126,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* pencil button */
     const pencil = document.getElementById("draw");
     pencil.addEventListener("click", () => {
+        clearInterval(rainbowAnimation);
         pencil.style.background = "gray";
         shade.style.backgroundColor = "#fff"
         rainbow.style.backgroundColor = "#fff";
@@ -136,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* shade button */
     const shade = document.getElementById("shade");
     shade.addEventListener("click", () => {
+        clearInterval(rainbowAnimation);
         shade.style.backgroundColor = "gray";
         pencil.style.background = "#fff";
         rainbow.style.backgroundColor = "#fff";
@@ -145,22 +149,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* rainbow button */
     const rainbowColors = [
-        "#FF0000", // Red
-        "#FF7F00", // Orange
-        "#FFFF00", // Yellow
-        "#00FF00", // Green
-        "#0000FF", // Blue
-        "#4B0082", // Indigo
-        "#9400D3"  // Violet
+        "#FF0000",
+        "#FF7F00",
+        "#FFFF00",
+        "#00FF00",
+        "#0000FF",
+        "#4B0082",
+        "#9400D3"
     ];
+    let rainbowAnimation;
     let rainbowIndex = 0;
 
     const rainbow = document.getElementById("rainbow");
     rainbow.addEventListener("click", () => {
-        rainbow.style.backgroundColor = "gray";
         pencil.style.background = "#fff";
         shade.style.backgroundColor = "#fff"
         drawMode = "rainbow";
+
+        clearInterval(rainbowAnimation);
+
+        let index = 0;
+        rainbowAnimation = setInterval(() => {
+            rainbow.style.backgroundColor = rainbowColors[index];
+            index = (index + 1) % rainbowColors.length;
+        }, 200);
     })
     /* ======================================================================= */
 
@@ -191,5 +203,3 @@ document.addEventListener("DOMContentLoaded", () => {
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     }
 });
-
-
