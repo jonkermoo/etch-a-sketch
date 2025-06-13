@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const colorBtn = document.getElementById("color");
     const colorPicker = document.getElementById("color-picker");
 
-    let drawMode = "draw";
+    let drawMode;
 
     let currentGrid = 16;
     let currentColor = "#000000";
@@ -95,10 +95,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     /* ======================================================================= */
 
+    /* pencil button */
+    const pencil = document.getElementById("draw");
+    pencil.addEventListener("click", () => {
+        pencil.style.background = "gray";
+        shade.style.backgroundColor = "#fff"
+        drawMode = "draw";
+    })
+
     /* shade button */
     const shade = document.getElementById("shade");
     shade.addEventListener("click", () => {
         shade.style.backgroundColor = "gray";
+        pencil.style.background = "#fff";
+        drawMode = "shade";
     });
     
     /* make button change color when clicked on */
