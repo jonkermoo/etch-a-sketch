@@ -14,3 +14,4 @@ Created using Flexbox rather CSS Grids.
 - Rainbow Toggle (draw in a rainbow)
 - Clear Button (resets your canvas)
 - Adjustable Grid Size
+- Changing window size will not affect the aspect ratio or visibility
