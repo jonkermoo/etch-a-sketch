@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const screen = document.querySelector(".screen");
     const sizeBtn  = document.getElementById("size-display");
 
-    let currentGrid = 16; // used for keeping track of current grid size
+    const colorBtn = document.getElementById("color");
+    const colorPicker = document.getElementById("color-picker");
+
+    let drawMode = "draw";
+
+    let currentGrid = 16;
     let currentColor = "#000000";
 
     /* initial creation of grid and resizing grid */
@@ -20,12 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
             /* drawing feature */
             cell.addEventListener("mouseenter", () => {
                 if (isDrawing) {
-                    cell.style.backgroundColor = currentColor;
+                    if (drawMode === "draw") {
+                        cell.style.backgroundColor = currentColor;
+                    }
                 }
             });
             cell.addEventListener("mousedown", () => {
                 if (isDrawing) {
-                    cell.style.backgroundColor = currentColor;
+                    if (drawMode === "draw") {
+                        cell.style.backgroundColor = currentColor;
+                    }
                 }
             });
             
@@ -70,7 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.addEventListener("mousedown", () => {
         isDrawing = true;
-        cell.style.backgroundColor = currentColor;
     });
     document.addEventListener("mouseup", () => {
         isDrawing = false;
@@ -78,9 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ====================================================================== */
     
     /* change color button */
-
-    const colorBtn = document.getElementById("color");
-    const colorPicker = document.getElementById("color-picker");
     colorBtn.addEventListener("click", () => {
         colorPicker.click();
     });
@@ -105,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     click.forEach(button => {
         button.addEventListener("drag", () => {
-            button.style.backgroundColor = "#gfff";
+            button.style.backgroundColor = "#fff";
         });
     });
     click.forEach(button => {
