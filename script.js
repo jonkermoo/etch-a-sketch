@@ -1,4 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
+    /* initial drawing at start */
+    const preloadPattern = [
+        "................................",
+        "................................",
+        "...####.......##.......####.....",
+        "...#..........#..#......#.......",
+        "...###........#...#.....###.....",
+        "...#..........#..#......#.......",
+        "...####.......##.......####.....",
+        "................................",
+        "................................",
+        "............##..................",
+        ".............#..................",
+        "............###.................",
+        "................................",
+        "................................",
+        ".##...#...##...#..#...####......",
+        ".#.#..#..#..#..#..#..#..........",
+        ".##...#..#..#..#..#...###.......",
+        ".#.#..#..#..#..#..#......#......",
+        ".#..#..##...##....#...####......",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................",
+        "................................"
+    ];
+    /* ====================================================================== */
+    
+    function applyPreload(gridSize, pattern) {
+        const cells = screen.querySelectorAll(".grid-square");
+        pattern.forEach((rowStr, y) => {
+            if (y >= gridSize) return;
+            [...rowStr].forEach((ch, x) => {
+            if (x >= gridSize) return;
+            if (ch === "#") {
+                const idx = y * gridSize + x;
+                const cell = cells[idx];
+                cell.style.backgroundColor = "#000";
+                cell.dataset.shade = "1";
+            }
+            });
+        });
+    }
     const screen = document.querySelector(".screen");
     const sizeBtn  = document.getElementById("size-display");
 
@@ -7,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let drawMode;
 
-    let currentGrid = 16;
+    let currentGrid = 32;
     let currentColor = "#000000";
 
     /* initial creation of grid and resizing grid */
@@ -93,8 +145,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     /* ====================================================================== */
     
-    createGrid(16);
-    sizeBtn.textContent = `size: 16`;
+    createGrid(currentGrid);
+    sizeBtn.textContent = `size: ${currentGrid}`;
+    applyPreload(currentGrid, preloadPattern);
     sizeBtn.addEventListener("click", changeSize);
 
     /* clear button */
@@ -202,4 +255,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const b = parseInt(hex.substr(5, 2), 16);
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     }
+    /* ====================================================================== */
+
+    
+
 });
